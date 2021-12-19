@@ -34,7 +34,7 @@ class DownloadAssetsControllerImpl implements DownloadAssetsController {
   }
 
   @override
-  void init() async {
+  Future init() async {
     String rootDir = await _fileManager.getApplicationPath();
     _assetsDir = '$rootDir/$_directoryPath';
   }
