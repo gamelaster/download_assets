@@ -10,6 +10,9 @@ abstract class DownloadAssetsController {
         fileManager: FileManagerImpl(),
         customHttpClient: CustomHttpClientImpl(),
       );
+  
+  /// Initializes library
+  Future init();
 
   ///Directory that keeps all assets
   String get assetsDir;
