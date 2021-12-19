@@ -18,6 +18,7 @@ class DownloadAssetsControllerImpl implements DownloadAssetsController {
   late String _assetsDir;
   late FileManager _fileManager;
   late CustomHttpClient _customHttpClient;
+  late String _directoryPath;
 
   @override
   String get assetsDir => _assetsDir;
@@ -29,12 +30,13 @@ class DownloadAssetsControllerImpl implements DownloadAssetsController {
   }) {
     _fileManager = fileManager;
     _customHttpClient = customHttpClient;
-    _init(directoryPath);
+    _directoryPath = directoryPath;
   }
 
-  void _init(String directoryPath) async {
+  @override
+  void init() async {
     String rootDir = await _fileManager.getApplicationPath();
-    _assetsDir = '$rootDir/$directoryPath';
+    _assetsDir = '$rootDir/$_directoryPath';
   }
 
   @override
